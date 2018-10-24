@@ -1,0 +1,8 @@
+<h3>Top Reports</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let report of reports" class="col-1-4" routerLink="/detail/{{report.id}}">
+    <div class="module report">
+      <h4>{{report.name}}</h4>
+    </div>
+  </a>
+</div>

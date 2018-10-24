@@ -1,0 +1,10 @@
+<h2>My Reports</h2>
+<ul class="reports">
+  <li *ngFor="let report of reports">
+    <a routerLink="/detail/{{report.id}}">
+      <span class="badge">{{report.id}}</span> {{report.name}}
+    </a>
+  </li>
+</ul>
+
+<app-report-detail [report]="selectedReport"></app-report-detail>
