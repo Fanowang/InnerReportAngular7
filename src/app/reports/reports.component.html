@@ -4,7 +4,17 @@
     <a routerLink="/detail/{{report.id}}">
       <span class="badge">{{report.id}}</span> {{report.name}}
     </a>
+    <button class="delete" title="delete report"
+      (click)="delete(report)">x</button>
   </li>
 </ul>
-
+<div>
+  <label>Report name:
+    <input #reportName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(reportName.value); reportName.value=''">
+    add
+  </button>
+</div>
 <app-report-detail [report]="selectedReport"></app-report-detail>

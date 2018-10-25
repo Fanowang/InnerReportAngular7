@@ -16,15 +16,19 @@ export class ReportDetailComponent implements OnInit {
     private location: Location) { }
 
   ngOnInit() {
-    this.getHero();
+    this.getReport();
   }
-  getHero(): void {
+  getReport(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.reportService.getReport(id)
       .subscribe(report => this.report = report);
   }
   goBack(): void {
     this.location.back();
+  }
+  save(): void {
+    this.reportService.updateReport(this.report)
+      .subscribe(() => this.goBack());
   }
 
 }
