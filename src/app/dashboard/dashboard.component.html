@@ -1,9 +1,26 @@
-<h3>Latest Reports</h3>
-<div class="grid grid-pad">
-  <a *ngFor="let report of reports" class="col-1-4" routerLink="/detail/{{report.id}}">
-    <div class="module report">
-      <h4>{{report.name}}</h4>
-    </div>
-  </a>
-</div>
-<app-report-search></app-report-search>
+<mat-card>
+  <mat-card-title>
+    <h3>Latest Reports</h3>
+  </mat-card-title>
+  <mat-card-content>
+<!--     <div class="grid grid-pad">
+      <a *ngFor="let report of reports" class="col-1-4" routerLink="/detail/{{report.id}}">
+        <div class="module report">
+          <h4>{{report.name}}</h4>
+        </div>
+      </a>
+    </div> -->
+    <mat-grid-list cols="4" rowHeight="2:1">
+        <mat-grid-tile *ngFor="let report of reports">
+            <a mat-button routerLink="/detail/{{report.id}}"> 
+              <div class="module report">
+                <h4>{{report.name}}</h4>              
+              </div>
+            </a>
+        </mat-grid-tile>
+        
+      </mat-grid-list>
+      
+    <app-report-search></app-report-search>
+  </mat-card-content>
+</mat-card>

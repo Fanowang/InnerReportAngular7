@@ -4,12 +4,15 @@ import { Report } from './report';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Observable, of } from 'rxjs';
+import { Observable, of, ObservableLike } from 'rxjs';
 import { MessageService } from './message.service';
 
-const httpOptions = {
+const httpOptions = {  
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
+/* const httpOptions = {  
+  headers: new HttpHeaders({ 'Content-Type': 'application/json','Accept': 'application/json;odata=verbose' })
+}; */
 
 @Injectable({
   providedIn: 'root'
@@ -17,13 +20,17 @@ const httpOptions = {
 export class ReportService {
 
 
-  getReports(): Observable<Report[]> {
+   getReports(): Observable<Report[]> {
     return this.http.get<Report[]>(this.reportsUrl)
       .pipe(
         tap(reports => this.log('fetched reports')),
         catchError(this.handleError('getReports', []))
       );
-  }
+  } 
+
+/*   getSPItems() {
+    return this.http.get(this.reportsUrl);
+  } */
   getReport(id: number): Observable<Report> {
     const url = `${this.reportsUrl}/${id}`;
     return this.http.get<Report>(url).pipe(
@@ -75,6 +82,7 @@ export class ReportService {
   }
 
   private reportsUrl = 'api/reports';
+  //private reportsUrl = "https://golderassociates.sharepoint.com/sites/IP99014/_api/web/lists/GetByTitle('ReportConfigure')/items";
   /**
  * Handle Http operation that failed.
  * Let the app continue.

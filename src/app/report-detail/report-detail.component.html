@@ -1,4 +1,4 @@
-<div *ngIf="report">
+<!-- <div *ngIf="report">
 
   <h2>{{report.name | uppercase}} Details</h2>
   <div><span>id: </span>{{report.id}}</div>
@@ -9,4 +9,41 @@
   </div>
   <button (click)="goBack()">go back</button>
   <button (click)="save()">save</button>
+</div> -->
+<div *ngIf="report">
+  <mat-card>
+    <mat-card-title>
+      <h2>{{report.name | uppercase}} Details</h2>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <div><span>ID: </span>{{report.id}}</div>
+    </mat-card-subtitle>
+    <mat-card-content>
+      <div class="form-container">
+        <mat-form-field>
+          <input matInput placeholder="Report Name" [(ngModel)]="report.name" class="reportContainer">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Facility ID" [(ngModel)]="report.facilityID" class="reportContainer">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [(ngModel)]="report.from" [matDatepicker]="picker1"
+            placeholder="From">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [(ngModel)]="report.to" [matDatepicker]="picker2" placeholder="End">
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="warn" (click)="goBack()">go back</button>
+      <button mat-raised-button color="warn" (click)="save()">save</button>
+    </mat-card-actions>
+  </mat-card>
 </div>

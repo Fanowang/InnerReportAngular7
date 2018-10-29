@@ -4,9 +4,11 @@ h2 {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: lighter;
   }
+
   body {
     margin: 2em;
   }
+    /* 
   body, input[text], button {
     color: crimson;
     font-family: Cambria, Georgia;
@@ -32,4 +34,4 @@ h2 {
   button.clear {
     color: #888;
     margin-bottom: 12px;
-  }
+  } */

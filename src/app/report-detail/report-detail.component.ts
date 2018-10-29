@@ -21,14 +21,22 @@ export class ReportDetailComponent implements OnInit {
   getReport(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.reportService.getReport(id)
-      .subscribe(report => this.report = report);
+      .subscribe(report => {
+        console.log(report.from);
+        //report.from = new Date(Date.UTC(report.from.getFullYear(), report.from.getMonth(), report.from.getDate()));
+        this.report = report
+      });
+
   }
   goBack(): void {
     this.location.back();
   }
   save(): void {
     this.reportService.updateReport(this.report)
-      .subscribe(() => this.goBack());
+      .subscribe(() => {
+        //console.log(this.report.from);
+        this.goBack()
+      });
   }
 
 }

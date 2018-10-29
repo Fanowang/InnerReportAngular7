@@ -1,20 +1,13 @@
 <h2>My Reports</h2>
-<ul class="reports">
-  <li *ngFor="let report of reports">
-    <a routerLink="/detail/{{report.id}}">
-      <span class="badge">{{report.id}}</span> {{report.name}}
+<mat-list class="reports">
+  <mat-list-item *ngFor="let report of reports" layout="row" flex>
+
+    <a mat-raised-button routerLink="/detail/{{report.id}}">
+      <span>{{report.id}}</span> {{report.name}}
     </a>
-    <button class="delete" title="delete report"
-      (click)="delete(report)">x</button>
-  </li>
-</ul>
-<div>
-  <label>Report name:
-    <input #reportName />
-  </label>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(reportName.value); reportName.value=''">
-    add
-  </button>
-</div>
-<app-report-detail [report]="selectedReport"></app-report-detail>
+    <button mat-raised-button color="warn" class="delete" title="delete report" (click)="delete(report)">x</button>
+
+  </mat-list-item>
+  <mat-divider></mat-divider>
+</mat-list>
+<button mat-raised-button color="primary" (click)="openDialog()">Configure New Report</button>

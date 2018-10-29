@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
 
   getReports(): void {
     this.reportService.getReports()
-      .subscribe(reports => this.reports = reports.slice(1, 5));
+      .subscribe(reports => this.reports = reports.slice(reports.length-4, reports.length));
   }
 
 }

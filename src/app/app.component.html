@@ -1,12 +1,37 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
- </div>
-<nav>
-  <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/reports">Reports</a>
-</nav>
-<router-outlet></router-outlet>
-<app-messages></app-messages>
+<button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>dialpad</mat-icon>
+      <span>Test</span>
+    </button>
+    <button mat-menu-item disabled>
+      <mat-icon>Test1</mat-icon>
+      <span>New</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>notifications_off</mat-icon>
+      <span>Position</span>
+    </button>
+  </mat-menu>
+<mat-card>
+  <mat-card-title>
+    <div style="text-align:center">
+      <h1>
+        Welcome to {{ title }}!
+      </h1>
+    </div>
+  </mat-card-title>
+  <mat-card-subtitle>
+    <nav mat-tab-nav-bar>
+      <a mat-tab-link routerLink="/dashboard">Dashboard</a>
+      <a mat-tab-link routerLink="/reports">Reports</a>
+    </nav>
+  </mat-card-subtitle>
+  <mat-card-content>
+    <router-outlet></router-outlet>
+    <app-messages></app-messages>
+  </mat-card-content>
+</mat-card>

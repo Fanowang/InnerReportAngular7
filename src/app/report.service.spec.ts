@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { ReportService } from './report.service';
 
+
 describe('ReportService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
@@ -9,4 +10,10 @@ describe('ReportService', () => {
     const service: ReportService = TestBed.get(ReportService);
     expect(service).toBeTruthy();
   });
+  /* it('should get sp items',()=>{
+    const service: ReportService=TestBed.get(ReportService);
+    
+    console.log(service.getSPItems());
+
+  }) */
 });
